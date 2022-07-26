@@ -1,5 +1,5 @@
 function TotalMoney({ lista }) {
-  let array = [1, 2, 4];
+  let array = [];
   for (let i = 0; i < lista.length; i++) {
     array.push(lista[i].valor);
   }
@@ -10,8 +10,12 @@ function TotalMoney({ lista }) {
     numero.push(transforma);
   }
   return (
-    <div>
-      {numero.reduce((oldValue, currentValue) => oldValue + currentValue, 0)}
+    <div className="totalMoney">
+      <p className="valorTotalMoney"> Valor Total:</p>
+      <p className="precoTotalMoney">
+        R$
+        {numero.reduce((oldValue, currentValue) => oldValue + currentValue, 0)}
+      </p>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import TotalMoney from "../TotalMoney";
+
 function Form({ lista, setlista }) {
   function click(event) {
     event.preventDefault();
@@ -11,21 +13,25 @@ function Form({ lista, setlista }) {
       valor: valor.value,
     };
     setlista([...lista, obj]);
-    console.log(lista);
   }
   return (
-    <div>
-      <form>
-        <input type="textarea" placeholder="Descrição" id="descricao" />
-        <input type="text" placeholder="Valor" id="valor" />
-        <select id="tipo">
-          <option>Selecione uma opção</option>
-          <option>Saída</option>
-          <option>Entrada</option>
-        </select>
-        <button onClick={click}>Enviar</button>
-      </form>
-    </div>
+    <>
+      <div>
+        <form>
+          <label> Descrição </label>
+          <input type="textarea" placeholder="Descrição" id="descricao" />
+          <label> Valor </label>
+          <input type="text" placeholder="Valor" id="valor" />
+          <label> Tipo de Valor</label>
+          <select id="tipo">
+            <option>Entrada</option>
+            <option>Saída</option>
+          </select>
+          <button onClick={click}>Inserir valor</button>
+        </form>
+      </div>
+      <TotalMoney lista={lista} />
+    </>
   );
 }
 export default Form;

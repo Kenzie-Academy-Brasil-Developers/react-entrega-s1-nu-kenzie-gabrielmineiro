@@ -1,7 +1,8 @@
 import Form from "./components/Form";
 import { useState } from "react";
 import List from "./components/List";
-import TotalMoney from "./components/TotalMoney";
+
+import Vazio from "./components/Vazio";
 import "./App.css";
 
 function App() {
@@ -10,13 +11,16 @@ function App() {
   return (
     <>
       <header>
-        <img src="./assets/NuKenzie.png" alt="" />
+        <img src="https://i.ibb.co/zhGjHCn/NuKenzie.png" alt="" />
+        <button>Início</button>
       </header>
       <div className="container">
-        <div className="formulario">
-          <Form lista={listTransactions} setlista={setlistTransactions} />
-        </div>
-        ;
+        <Form lista={listTransactions} setlista={setlistTransactions} />;
+        {listTransactions.length === 0 ? (
+          <Vazio />
+        ) : (
+          <List lista={listTransactions} />
+        )}
       </div>
     </>
   );

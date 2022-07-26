@@ -1,14 +1,47 @@
 function List({ lista }) {
   return (
-    <ul>
-      {lista.map((transaction, index) => (
-        <li key={index}>
-          <p id="descricao">{transaction.descricao}</p>
-          <p id="tipo">{transaction.tipo}</p>
-          <p id="valor">{transaction.valor}</p>
-        </li>
-      ))}
-    </ul>
+    <div className="divLista">
+      <div className="filtro">
+        <p>Resumo Financeiro</p>
+        <button className="todos"> Todos</button>
+        <button className="entradas">Entradas</button>
+        <button className="saidas">Saídas</button>
+      </div>
+      <ul>
+        {lista.map((transaction, index) =>
+          transaction.tipo === "Saída" ? (
+            <li key={index}>
+              <img src="https://i.ibb.co/VjJ6CRL/Rectanglegray-57.png" alt="" />
+              <div className="liContainer">
+                <section className="descricaoTipo">
+                  <p className="descricao">{transaction.descricao}</p>
+                  <p className="tipo">{transaction.tipo}</p>
+                </section>
+                <p className="valor">{transaction.valor}</p>
+                <button onClick={console.log(index)}>
+                  <img src="https://i.ibb.co/vq82S24/trash.png" alt="" />
+                </button>
+              </div>
+            </li>
+          ) : (
+            <li key={index}>
+              <img src="https://i.ibb.co/zhJ7d7b/Rectangle57.png" alt="" />
+              <div className="liContainer">
+                <section className="descricaoTipo">
+                  <p className="descricao">{transaction.descricao}</p>
+                  <p className="tipo">{transaction.tipo}</p>
+                </section>
+                <p className="valor">{transaction.valor}</p>
+
+                <button>
+                  <img src="https://i.ibb.co/vq82S24/trash.png" alt="" />
+                </button>
+              </div>
+            </li>
+          )
+        )}
+      </ul>
+    </div>
   );
 }
 export default List;
