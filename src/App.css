@@ -64,6 +64,13 @@ form button {
   border-radius: 1rem;
   color: white;
 }
+form button:hover {
+  background-color: white;
+  color: #fd377e;
+  border: 2px solid #fd377e;
+  transition: 1s;
+  cursor: pointer;
+}
 .divLista {
   width: 60%;
   height: 50%;
