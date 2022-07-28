@@ -15,11 +15,11 @@ function App() {
         <button>Início</button>
       </header>
       <div className="container">
-        <Form lista={listTransactions} setlista={setlistTransactions} />;
+        <Form lista={listTransactions} setlista={setlistTransactions} />
         {listTransactions.length === 0 ? (
           <Vazio />
         ) : (
-          <List lista={listTransactions} />
+          <List lista={listTransactions} setLista={setlistTransactions} />
         )}
       </div>
     </>

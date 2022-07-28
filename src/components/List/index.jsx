@@ -18,12 +18,12 @@ function List({ lista }) {
                   <p className="tipo">{transaction.tipo}</p>
                 </section>
                 <p className="valor">{transaction.valor}</p>
-                <button onClick={console.log(index)}>
+                <button>
                   <img src="https://i.ibb.co/vq82S24/trash.png" alt="" />
                 </button>
               </div>
             </li>
-          ) : (
+          ) : transaction.tipo === "Entrada" ? (
             <li key={index}>
               <img src="https://i.ibb.co/zhJ7d7b/Rectangle57.png" alt="" />
               <div className="liContainer">
@@ -38,6 +38,8 @@ function List({ lista }) {
                 </button>
               </div>
             </li>
+          ) : (
+            alert("Selecione uma categoria")
           )
         )}
       </ul>
